@@ -1,11 +1,13 @@
-SRC_NAME = Main.java \
-			Complex.java
+SRC_NAME = computor.java \
+						Complex.java \
+						Monome.java \
+						Polynome.java
 
 
 SRC_PATH = src/
 OBJ_PATH = bin/
 
-NAME = computor
+NAME = computor.Class
 
 CC = javac
 
@@ -18,16 +20,15 @@ all : $(NAME)
 
 
 $(NAME) : $(OBJ)
-	@mkdir -p lib
-	ln -s src/Main.class ./$(NAME)
+	@ln -s bin/computor.class ./$(NAME) 2>&1 > /dev/null || true 
 
 $(OBJ_PATH)%.class: $(SRC_PATH)%.java
-	@mkdir $(OBJ_PATH) 2> /dev/null || true
+	mkdir $(OBJ_PATH) 2> /dev/null || true
 	$(CC) -d bin/ -cp $(SRC_PATH) $<
 
 clean: fclean
 
-fclean: clean
+fclean:
 	/bin/rm -fv $(OBJ)
 	@rmdir $(OBJ_PATH) 2> /dev/null || true
 	rm -fv $(NAME)
