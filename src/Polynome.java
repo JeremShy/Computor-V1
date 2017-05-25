@@ -8,7 +8,7 @@ public class Polynome {
 		pol = new ArrayList<Monome>();
 	}
 
-	Polynome (String arg) {
+	Polynome (String arg) throws Exception {
 		this();
 		
 		int 	signe;
@@ -34,6 +34,10 @@ public class Polynome {
 				coefficient = Double.parseDouble(arg.substring(i, i + len)) * signe;
 				System.out.println("Coefficient: " + coefficient);
 				i += len;
+				i += 5;
+				if (i > arg.length() || 1 == 1) {
+					throw new ParseException("Unexpected end");
+				}
 			}
 		}
 	
