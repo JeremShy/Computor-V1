@@ -1,4 +1,4 @@
-SRC_NAME = computor.java \
+mSRC_NAME = computor.java \
 						Complex.java \
 						Monome.java \
 						Polynome.java
@@ -20,7 +20,7 @@ all : $(NAME)
 
 
 $(NAME) : $(OBJ)
-	@ln -s bin/computor.class ./$(NAME) 2>&1 > /dev/null || true 
+	@ln -s bin/computor.class ./$(NAME) 2>&1 > /dev/null || true
 
 $(OBJ_PATH)%.class: $(SRC_PATH)%.java
 	mkdir $(OBJ_PATH) 2> /dev/null || true
