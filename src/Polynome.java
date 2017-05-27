@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 
 public class Polynome {
@@ -21,7 +20,7 @@ public class Polynome {
 
 		i = 0;
 			while (i < arg.length()) {
-				System.out.println("[" + arg.substring(i) + "]");
+//				System.out.println("[" + arg.substring(i) + "]");
 				while (arg.charAt(i) == ' ')
 					i++;
 				if (arg.charAt(i) == '-')
@@ -83,7 +82,7 @@ public class Polynome {
 			}
 			i++;
 			while (i < arg.length()) {
-				System.out.println("[" + arg.substring(i) + "]");
+//				System.out.println("[" + arg.substring(i) + "]");
 				while (arg.charAt(i) == ' ')
 					i++;
 				if (arg.charAt(i) == '-')
@@ -104,7 +103,7 @@ public class Polynome {
 					len++;
 				}
 				coefficient = Double.parseDouble(arg.substring(i, i + len)) * signe;
-				System.out.println("coef : " + coefficient);
+//				System.out.println("coef : " + coefficient);
 				i += len;
 				if (arg.charAt(i +  1) == '*') {
 					i += 4;
@@ -173,5 +172,17 @@ public class Polynome {
 			ret += i + " ";
 		}
 		return ret;
+	}
+	
+	public Monome get_monome_deg(int pdegre) {
+		for (Monome i : pol) {
+			if (i.getPuissance() == pdegre)
+				return (i);
+		}
+		return null;
+	}
+	
+	public int getDegre() {
+		return (pol.get(0).getPuissance());
 	}
 }

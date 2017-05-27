@@ -3,9 +3,11 @@
 
 	public static void main(String[] args) {
 		Polynome pol;
+		Pol_deg_2 pol2;
 		
 		if (args.length != 1) {
 			System.out.println("Wrong number of arguments :( ");
+			return ;
 		}
 		
 		System.out.println("Argument : [" + args[0] + "]");
@@ -19,33 +21,15 @@
 			return ;
 		}
 		pol.sort();
-		System.out.println(pol);
-		//		arg = args[0];
-//		System.out.println("Parsing arg : [" + arg + "]");
-//		i = 0;
-//		while(arg.charAt(i) == ' ')
-//			i++;
-//		if (arg.charAt(i) == '-') {
-//			signe = -1;
-//			i++;
-//		}
-//		else
-//			signe = 1;
-//		len = 0;
-//		while (Character.isDigit(arg.charAt(i + len)) || arg.charAt(i + len) == '.') {
-//			len++;
-//		}
-//		coef = Double.parseDouble(arg.substring(i, i + len)) * signe;
-//		System.out.println("Coef : " + coef);
-//		i = i + len;
-//		i = arg.indexOf('X', i);
-//		while(arg.charAt(i) == ' ')
-//			i++;
-//		if (arg.charAt(i) == '-') {
-//			signe = -1;
-//			i++;
-//		}
-//		else
-//			signe = 1;
+		System.out.println("pol : " + pol);
+		System.out.println("Polynomial degree: " + Integer.toString(pol.getDegre()));
+		if (pol.getDegre() > 2)
+		{
+			System.out.println("The polynomial degree is stricly greater than 2, I can't solve.");
+		}
+		if (pol.getDegre() == 2) {
+			pol2 = new Pol_deg_2(pol);
+			System.out.println("Delta : " + pol2.getDelta());
+		}
 	}
 }
