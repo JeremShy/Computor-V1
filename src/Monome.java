@@ -6,6 +6,7 @@ public class Monome implements Comparable {
 	Monome(int pdegre, double pnumber) {
 		puissance = pdegre;
 		coef = pnumber;
+		System.out.println("Creating new monome : " + coef + " * X^" + puissance);
 	}
 
 	public int getPuissance() {
@@ -16,9 +17,8 @@ public class Monome implements Comparable {
 		return coef;
 	}
 	
-	public Monome add(Monome to_add) {
-		Monome ret = new Monome(puissance, coef + to_add.getCoef());
-		return (ret);
+	public void add(Monome to_add) {
+		this.coef =  coef + to_add.getCoef();
 	}
 
 	@Override

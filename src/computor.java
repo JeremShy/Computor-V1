@@ -29,7 +29,7 @@
 		}
 		if (pol.getDegre() == 2) {
 			pol2 = new Pol_deg_2(pol);
-			System.out.println("Delta : " + pol2.getDelta());
+			pol2.solve_and_print();
 		}
 	}
 }

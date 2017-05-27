@@ -11,11 +11,35 @@ public class Pol_deg_2 extends Polynome{ // a * x2 + bx + c
 	}
 	Pol_deg_2(Polynome pol) {
 		a = (pol.get_monome_deg(2)).getCoef();
-		b = (pol.get_monome_deg(1)).getCoef();
-		c = (pol.get_monome_deg(0)).getCoef();
+		if (pol.get_monome_deg(1) != null)
+			b = (pol.get_monome_deg(1)).getCoef();
+		else
+			b = 0;
+		if (pol.get_monome_deg(0) != null)
+			c = (pol.get_monome_deg(0)).getCoef();
+		else
+			c = 0;
 	}
 	
 	public double getDelta() {
 		return (b * b - 4 * a * c);
+	}
+	
+	public void solve_and_print() {
+		System.out.println("Delta : " + this.getDelta());
+		if (this.getDelta() > 0)
+		{
+			System.out.println("Discriminant is strictly positive, the two solutions are:");
+			System.out.println(Double.toString((-1 * b - Math.sqrt(this.getDelta())) / (2 * a)));
+			System.out.println(Double.toString((-1 * b + Math.sqrt(this.getDelta())) / (2 * a)));
+		}
+		else if (this.getDelta() == 0) {
+			System.out.println("Discriminant is equal to 0, the only solution is:");
+			System.out.println(Double.toString((-1 * b) / (2 * a)));
+		}
+		else
+		{
+			System.out.println("Discriminant is strictly negative, the two solutions are:");
+		}
 	}
 }

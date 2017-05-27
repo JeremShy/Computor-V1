@@ -155,7 +155,7 @@ public class Polynome {
 		while (n < pol.size()) {
 			i = pol.get(n);
 			if (i.getPuissance() == to_add.getPuissance()) {
-				i = i.add(to_add);
+				i.add(to_add);
 				return ;
 			}
 			n++;
