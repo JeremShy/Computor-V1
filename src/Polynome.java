@@ -142,6 +142,8 @@ public class Polynome {
 				while (i + len < arg.length() && arg.charAt(i) == ' ')
 					i++;
 			}
+			if (pol.isEmpty())
+				pol.add(new Monome(0, 0));
 		}
 	
 	public void sort() {
@@ -153,6 +155,8 @@ public class Polynome {
 		int		n;
 		
 		n = 0;
+		if (to_add.getCoef() == 0 && to_add.getPuissance() != 0)
+			return ;
 		while (n < pol.size()) {
 			i = pol.get(n);
 			if (i.getPuissance() == to_add.getPuissance()) {
@@ -194,7 +198,10 @@ public class Polynome {
 				ret += " * X^" + Integer.toString(i.getPuissance());
 			}
 			else if (i.getCoef() < 0) {
-				ret += " - ";
+				if (j == 0)
+					ret += "-";
+				else
+					ret += " - ";
 				if (i.getCoef() * -1 % 1 == 0)
 					ret += Integer.toString((int)(Math.rint(i.getCoef()) * -1));
 				else
