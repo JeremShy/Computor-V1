@@ -155,7 +155,10 @@ public class Polynome {
 		while (n < pol.size()) {
 			i = pol.get(n);
 			if (i.getPuissance() == to_add.getPuissance()) {
-				i.add(to_add);
+				if (i.getCoef() + to_add.getCoef() == 0 && i.getPuissance() != 0)
+					pol.remove(n);
+				else
+					i.add(to_add);
 				return ;
 			}
 			n++;
@@ -166,10 +169,38 @@ public class Polynome {
 	public String toString()
 	{
 		String ret = new String();
-		for (Monome i : pol) {
-			if (i.getCoef() >= 0)
-				ret += "+ ";
-			ret += i + " ";
+		
+		int j;
+		ArrayList<Monome> pol2;
+		
+		pol2 = new ArrayList<Monome>(pol);
+		Collections.reverse(pol2);
+		j = 0;
+		for (Monome i : pol2) {
+			if (i.getCoef() >= 0 && j > 0) {
+				ret += " + ";
+				if (i.getCoef() % 1 == 0)
+					ret += Integer.toString((int)(Math.rint(i.getCoef())));
+				else
+					ret += Double.toString(i.getCoef());
+				ret += " * X^" + Integer.toString(i.getPuissance());
+			}
+			else if (i.getCoef() >= 0 && j == 0) {
+				if (i.getCoef() % 1 == 0)
+					ret += Integer.toString((int)(Math.rint(i.getCoef())));
+				else
+					ret += Double.toString(i.getCoef());
+				ret += " * X^" + Integer.toString(i.getPuissance());
+			}
+			else if (i.getCoef() < 0) {
+				ret += " - ";
+				if (i.getCoef() * -1 % 1 == 0)
+					ret += Integer.toString((int)(Math.rint(i.getCoef()) * -1));
+				else
+					ret += Double.toString(i.getCoef() * -1);
+				ret += " * X^" + Integer.toString(i.getPuissance());
+			}
+			j++;
 		}
 		return ret;
 	}
@@ -184,5 +215,9 @@ public class Polynome {
 	
 	public int getDegre() {
 		return (pol.get(0).getPuissance());
+	}
+	
+	public boolean polEmpty() {
+		return pol.isEmpty();
 	}
 }

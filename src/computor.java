@@ -10,18 +10,17 @@
 			return ;
 		}
 		
-		System.out.println("Argument : [" + args[0] + "]");
 		try {
 			pol = new Polynome(args[0]);
 		} catch (Exception e) {
-			System.out.println("Une erreur est survenue lors du parsing. Veuillez vérifier le bon format de l'expression entrée. "
+			System.out.println("Une erreur est survenue lors du parsing." + System.lineSeparator() + "Veuillez vérifier le bon format de l'expression entrée. "
 					+ "Détails de l'erreur : " + e.toString() + ".");
-			e.printStackTrace();
+//			e.printStackTrace();
 			System.out.println("Computor-V1 va à présent se terminer.");
 			return ;
 		}
 		pol.sort();
-		System.out.println("pol : " + pol);
+		System.out.println("Reduced form: " + pol + " = 0");
 		System.out.println("Polynomial degree: " + Integer.toString(pol.getDegre()));
 		if (pol.getDegre() > 2)
 			System.out.println("The polynomial degree is stricly greater than 2, I can't solve.");
@@ -38,7 +37,7 @@
 			if (pol.get_monome_deg(0).getCoef() == 0)
 				System.out.println("Every real number is a solution of this equation.");
 			else
-				System.out.println("There is no solution to this equation");
+				System.out.println("There is no solution to this equation.");
 		}
 	}
 }

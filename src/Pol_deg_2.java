@@ -26,7 +26,10 @@ public class Pol_deg_2 extends Polynome{ // a * x2 + bx + c
 	}
 	
 	public void solve_and_print() {
-		System.out.println("Delta : " + this.getDelta());
+		if (this.getDelta() == 0)
+			System.out.println("Delta : " + "0");
+		else
+			System.out.println("Delta : " + this.getDelta());
 		if (this.getDelta() > 0)
 		{
 			System.out.println("Discriminant is strictly positive, the two solutions are:");
@@ -35,7 +38,10 @@ public class Pol_deg_2 extends Polynome{ // a * x2 + bx + c
 		}
 		else if (this.getDelta() == 0) {
 			System.out.println("Discriminant is equal to 0, the only solution is:");
-			System.out.println(Double.toString((-1 * b) / (2 * a)));
+			if ((-1 * b) / (2 * a) == 0)
+				System.out.println("0");
+			else
+				System.out.println(String.valueOf((-1 * b) / (2 * a)));
 		}
 		else
 		{

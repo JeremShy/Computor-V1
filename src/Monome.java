@@ -5,8 +5,10 @@ public class Monome implements Comparable {
 	
 	Monome(int pdegre, double pnumber) {
 		puissance = pdegre;
+		if (pnumber == -0.0)
+			pnumber = 0.0;
 		coef = pnumber;
-		System.out.println("Creating new monome : " + coef + " * X^" + puissance);
+//		System.out.println("Creating new monome : " + coef + " * X^" + puissance);
 	}
 
 	public int getPuissance() {
@@ -39,8 +41,8 @@ public class Monome implements Comparable {
 	
 	public String toString() {
 		if (puissance != 0)
-			return (coef + " * X^" + puissance);
+			return ((coef % 1 == 0 ? Math.rint(coef) : coef) + " * X^" + puissance);
 		else
-			return (String.valueOf(coef));
+			return (coef % 1 == 0 ? Integer.toString((int) Math.rint(coef)) : Double.toString(coef));
 	}
 }
