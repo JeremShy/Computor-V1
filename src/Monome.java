@@ -9,7 +9,6 @@ public class Monome implements Comparable<Monome> {
 		if (pnumber == -0.0)
 			pnumber = 0.0;
 		coef = pnumber;
-//		System.out.println("Creating new monome : " + coef + " * X^" + puissance);
 	}
 
 	public int getPuissance() {

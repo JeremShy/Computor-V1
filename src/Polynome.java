@@ -21,7 +21,6 @@ public class Polynome {
 
 		i = 0;
 			while (i < arg.length()) {
-//				System.out.println("[" + arg.substring(i) + "]");
 				while (arg.charAt(i) == ' ')
 					i++;
 				if (arg.charAt(i) == '-')
@@ -83,7 +82,6 @@ public class Polynome {
 			}
 			i++;
 			while (i < arg.length()) {
-//				System.out.println("[" + arg.substring(i) + "]");
 				while (arg.charAt(i) == ' ')
 					i++;
 				if (arg.charAt(i) == '-')
@@ -104,7 +102,6 @@ public class Polynome {
 					len++;
 				}
 				coefficient = Double.parseDouble(arg.substring(i, i + len)) * signe;
-//				System.out.println("coef : " + coefficient);
 				i += len;
 				if (arg.charAt(i +  1) == '*') {
 					i += 4;

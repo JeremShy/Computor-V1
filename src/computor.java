@@ -16,7 +16,6 @@
 		} catch (Exception e) {
 			System.out.println("Une erreur est survenue lors du parsing." + System.lineSeparator() + "Veuillez vérifier le bon format de l'expression entrée. "
 					+ "Détails de l'erreur : " + e.toString() + ".");
-//			e.printStackTrace();
 			System.out.println("Computor-V1 va à présent se terminer.");
 			return ;
 		}

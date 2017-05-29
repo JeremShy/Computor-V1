@@ -27,10 +27,6 @@ public class Pol_deg_2 extends Polynome{ // a * x2 + bx + c
 	}
 	
 	public void solve_and_print() {
-		if (this.getDelta() == 0)
-			System.out.println("Delta : " + "0");
-		else
-			System.out.println("Delta : " + this.getDelta());
 		if (this.getDelta() > 0)
 		{
 			System.out.println("Discriminant is strictly positive, the two solutions are:");
@@ -46,7 +42,7 @@ public class Pol_deg_2 extends Polynome{ // a * x2 + bx + c
 		}
 		else
 		{
-			System.out.println("Discriminant is strictly negative, the two solutions are:");
+			System.out.println("Discriminant is strictly negative, the two (imaginary) solutions are:");
 			Complex z1 = new Complex((-1 * b) / (2 * a), (-1 * Math.sqrt(-1 * this.getDelta()) / (2 * a)));
 			Complex z2 = new Complex((-1 * b) / (2 * a), (Math.sqrt(-1 * this.getDelta()) / (2 * a)));
 			System.out.println(z1 + System.lineSeparator() + z2);
