@@ -1,7 +1,9 @@
 mSRC_NAME = computor.java \
 						Complex.java \
 						Monome.java \
-						Polynome.java
+						Polynome.java \
+						ParseException.java
+						Pol_deg_2.java
 
 
 SRC_PATH = src/

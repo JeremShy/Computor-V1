@@ -3,12 +3,12 @@ public class Complex {
 	private double i;
 	private double r;
 	
-	Complex(double pi, double pr) {
-		i = pi;
+	Complex(double pr, double pi) {
 		r = pr;
+		i = pi;
 	}
 	
-	public void print() {
-		System.out.println(r + " + i * " + i);
+	public String toString() {
+		return (r + " + i * " + i);
 	}
 }

@@ -40,8 +40,9 @@ public class Pol_deg_2 extends Polynome{ // a * x2 + bx + c
 		else
 		{
 			System.out.println("Discriminant is strictly negative, the two solutions are:");
-			System.out.println(Double.toString((-1 * b - Math.sqrt(this.getDelta())) / (2 * a)));
-			System.out.println(Double.toString((-1 * b + Math.sqrt(this.getDelta())) / (2 * a)));			
+			Complex z1 = new Complex((-1 * b) / (2 * a), (-1 * Math.sqrt(-1 * this.getDelta()) / (2 * a)));
+			Complex z2 = new Complex((-1 * b) / (2 * a), (Math.sqrt(-1 * this.getDelta()) / (2 * a)));
+			System.out.println(z1 + System.lineSeparator() + z2);
 		}
 	}
 }
