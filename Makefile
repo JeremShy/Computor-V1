@@ -1,15 +1,17 @@
-mSRC_NAME = computor.java \
+SRC_NAME = computor.java \
 						Complex.java \
 						Monome.java \
 						Polynome.java \
-						ParseException.java
+						ParseException.java \
 						Pol_deg_2.java
 
 
-SRC_PATH = src/
-OBJ_PATH = bin/
+SRC_PATH = ./src/
+OBJ_PATH = ./bin/
 
-NAME = computor.Class
+NAME = computor.jar
+
+MANIFEST = $(SRC_PATH)manifest.txt
 
 CC = javac
 
@@ -22,17 +24,17 @@ all : $(NAME)
 
 
 $(NAME) : $(OBJ)
-	@ln -s bin/computor.class ./$(NAME) 2>&1 > /dev/null || true
 
 $(OBJ_PATH)%.class: $(SRC_PATH)%.java
 	mkdir $(OBJ_PATH) 2> /dev/null || true
+	echo "compiling $<"
 	$(CC) -d bin/ -cp $(SRC_PATH) $<
 
 clean: fclean
 
 fclean:
 	/bin/rm -fv $(OBJ)
-	@rmdir $(OBJ_PATH) 2> /dev/null || true
+	rm -rf $(OBJ_PATH) 2> /dev/null || true
 	rm -fv $(NAME)
 
 

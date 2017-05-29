@@ -1,5 +1,6 @@
 
-public class Monome implements Comparable {
+
+public class Monome implements Comparable<Monome> {
 	private int puissance;
 	private double coef;
 	
@@ -24,7 +25,7 @@ public class Monome implements Comparable {
 	}
 
 	@Override
-	public int compareTo(Object o) {
+	public int compareTo(Monome o) {
 		Monome m;
 		if (o instanceof Monome) {
 			m = (Monome) o;

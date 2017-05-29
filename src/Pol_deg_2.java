@@ -1,4 +1,5 @@
 
+
 public class Pol_deg_2 extends Polynome{ // a * x2 + bx + c
 	private double a;
 	private double b;
